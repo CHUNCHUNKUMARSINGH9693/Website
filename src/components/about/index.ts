@@ -1,0 +1,9 @@
+export { AboutHero } from "./AboutHero";
+export { WhoWeAre } from "./WhoWeAre";
+export { MissionVision } from "./MissionVision";
+export { WhyChooseUs } from "./WhyChooseUs";
+export { WorkProcess } from "./WorkProcess";
+export { Technologies } from "./Technologies";
+export { TeamSection } from "./TeamSection";
+export { Testimonials } from "./Testimonials";
+export { CTASection } from "./CTASection";

@@ -39,16 +39,53 @@ function ServiceIcon({ icon }: { icon: ServiceMenuItem["icon"] }) {
           />
         </svg>
       );
-    case "devops":
+    case "design":
       return (
         <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={1.75}
-            d="M4 7h16M4 12h16M4 17h10"
+            d="M12 21a9 9 0 110-18 9 9 0 010 18z"
           />
-          <ellipse cx="17" cy="17" rx="2" ry="1.5" strokeWidth={1.75} />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M8 9a1 1 0 100-2 1 1 0 000 2zM11 7a1 1 0 100-2 1 1 0 000 2zM14 8a1 1 0 100-2 1 1 0 000 2zM16 11a1 1 0 100-2 1 1 0 000 2z" />
+        </svg>
+      );
+    case "shop":
+      return (
+        <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      );
+    case "crm":
+      return (
+        <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+          <circle cx="9" cy="7" r="4" strokeWidth={1.75} />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+        </svg>
+      );
+    case "erp":
+      return (
+        <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M3 3v18h18M18 17V9M13 17V5M8 17v-3" />
+        </svg>
+      );
+    case "marketing":
+      return (
+        <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M11 5L6 19l1.5.5L11 14l3.5 5.5L17 19l-5-14zM19 8v8M16 11h6" />
+        </svg>
+      );
+    case "cloud":
+      return (
+        <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.75}
+            d="M17.5 19A5.5 5.5 0 0018 8.022a7 7 0 10-13.845 2.108A4.5 4.5 0 105.5 19h12z"
+          />
         </svg>
       );
     case "seo":
@@ -62,17 +99,8 @@ function ServiceIcon({ icon }: { icon: ServiceMenuItem["icon"] }) {
           />
         </svg>
       );
-    case "ads":
-      return (
-        <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.75}
-            d="M11 5L6 19l1.5.5L11 14l3.5 5.5L17 19l-5-14zM19 8v8M16 11h6"
-          />
-        </svg>
-      );
+    default:
+      return null;
   }
 }
 
@@ -90,8 +118,7 @@ export function ServicesMegaMenu({ id, className = "", onItemClick }: ServicesMe
       aria-label="Services"
       className={`rounded-2xl border border-gray-100 bg-white p-6 shadow-2xl shadow-black/20 ${className}`}
     >
-      <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-        {serviceMenuItems.map((item) => (
+       <ul className="grid gap-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-3">        {serviceMenuItems.map((item) => (
           <li key={item.href}>
             <Link
               href={item.href}

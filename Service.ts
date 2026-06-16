@@ -10,7 +10,12 @@ export interface IService extends Document {
   technologies: string[];
   features: string[];
   process: { step: number; title: string; description: string }[];
-  pricing: { plan: string; price: string; features: string[]; highlight?: boolean }[];
+  relatedProjects: {
+    image: string;
+    title: string;
+    category: string;
+    slug: string;
+  }[];
   faq: { question: string; answer: string }[];
 }
 
@@ -30,12 +35,12 @@ const ServiceSchema: Schema = new Schema({
       description: String,
     },
   ],
-  pricing: [
+  relatedProjects: [
     {
-      plan: String,
-      price: String,
-      features: [String],
-      highlight: Boolean,
+      image: String,
+      title: String,
+      category: String,
+      slug: String,
     },
   ],
   faq: [

@@ -31,11 +31,6 @@ export const getServiceBySlug = async (slug: string): Promise<IService | null> =
           { step: 2, title: "Development", description: "Building with precision." },
           { step: 3, title: "Deployment", description: "Launching your solution." },
         ],
-        pricing: [
-          { plan: "Starter", price: "$999", description: "Perfect for startups.", features: ["Basic setup", "Standard support"] },
-          { plan: "Business", price: "$2,499", description: "For growing teams.", features: ["Advanced features", "Priority support"], highlight: true },
-          { plan: "Enterprise", price: "Custom", description: "Full-scale solutions.", features: ["Full customization", "Dedicated manager"] },
-        ],
         faq: [
           { question: "How long does it take?", answer: "Typically 4-8 weeks depending on complexity." },
           { question: "Do you offer support?", answer: "Yes, we provide 24/7 technical support." },

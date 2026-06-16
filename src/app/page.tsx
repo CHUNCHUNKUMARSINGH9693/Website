@@ -2,8 +2,10 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Star, CheckCircle2, Users, Award, Clock, Headphones, Zap, Search, Layout, Code, Database, Cloud, ShoppingCart, BarChart } from "lucide-react";
-import { Container, ProjectCard, SectionHeading } from "@/components";
+import { ArrowRight, Star, CheckCircle2, Users, Award, Clock, Headphones, Zap, Search, Layout, Code, Database, Cloud, ShoppingCart, BarChart, BarChart3 } from "lucide-react";
+import Container from "@/components/Container";
+import ProjectCard from "@/components/ProjectCard";
+import SectionHeading from "@/components/SectionHeading";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -21,7 +23,7 @@ export default function HomePage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <motion.div {...fadeIn}>
               <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-600 mb-6">
-                🚀 We Build Digital Success
+                 We Build Digital Success
               </span>
               <h1 className="text-5xl font-extrabold leading-tight text-gray-900 md:text-6xl">
                 We Build Digital Products That Drive <span className="text-blue-600">Real Business Growth</span>
@@ -39,13 +41,19 @@ export default function HomePage() {
               </div>
               
               <div className="mt-12 flex items-center gap-4">
-                <div className="flex -space-x-3">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="h-12 w-12 rounded-full border-4 border-white bg-gray-200 overflow-hidden">
-                      <div className="h-full w-full bg-gradient-to-br from-blue-100 to-blue-300" />
-                    </div>
-                  ))}
-                </div>
+               <div className="flex -space-x-3">
+  {[1, 2, 3, 4].map((i) => (
+    <div key={i} className="relative h-12 w-12 rounded-full border-4 border-white overflow-hidden bg-gray-100">
+      <Image
+        src={`/images/team/team${i}.png`} // Fixed path and extension
+        alt={`Client Avatar ${i}`}
+        fill
+        className="object-cover"
+        sizes="48px"
+      />
+    </div>
+  ))}
+</div>
                 <div>
                   <div className="flex text-yellow-400">
                     {[1, 2, 3, 4, 5].map((s) => <Star key={s} size={16} fill="currentColor" />)}
@@ -106,14 +114,18 @@ export default function HomePage() {
       <section className="py-24 bg-gray-50/50">
         <Container>
           <SectionHeading title="What we do" subtitle="End-to-end digital services tailored to your business." centered />
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-6">
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {[
               { title: "Web Development", desc: "Modern responsive websites built with latest tech.", icon: Code },
               { title: "Mobile Apps", desc: "High-performance apps for iOS and Android.", icon: Layout },
               { title: "UI/UX Design", desc: "Beautiful user experiences and interfaces.", icon: Search },
               { title: "E-Commerce", desc: "Online stores that increase conversions.", icon: ShoppingCart },
-              { title: "Digital Marketing", desc: "Data-driven growth strategies.", icon: BarChart },
+              { title: "Digital Marketing", desc: "Data-driven growth strategies.", icon: BarChart3 },
               { title: "Cloud Solutions", desc: "Scalable cloud infrastructure.", icon: Cloud },
+              { title: "Software Development", desc: "Custom Software Solutions", icon: Code },
+              { title: "CRM Development", desc: "Tailored CRM Systems", icon: Users },
+              { title: "SEO Services", desc: "Improve Search Rankings", icon: Search },
+              { title: "ERP Solutions", desc: "Integrated ERP Systems", icon: BarChart3 },
             ].map((s, i) => (
               <motion.div key={i} whileHover={{ y: -10 }} className="p-6 bg-white rounded-[24px] border border-gray-100 shadow-sm transition-all hover:shadow-xl text-center">
                 <div className="mx-auto w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4"><s.icon size={24} /></div>
@@ -146,16 +158,35 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-            <div className="lg:col-span-8 grid gap-10 md:grid-cols-2">
-              <div className="space-y-10">
-                <ProjectCard title="SaaS Dashboard" category="Web Application" image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" slug="saas-dashboard" />
-                <ProjectCard title="Mobile Banking App" category="Mobile Development" image="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" slug="banking-app" />
+           <div className="lg:col-span-8 grid gap-8 md:grid-cols-2">
+  <ProjectCard
+    title="SaaS Dashboard"
+    category="Web Application"
+    image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+    slug="saas-dashboard"
+  />
 
-              </div>
-              <div className="pt-12">
-                <ProjectCard title="E-Commerce Platform" category="Web Development" image="https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=800&q=80" slug="ecommerce-platform" />
-              </div>
-            </div>
+  <ProjectCard
+    title="Mobile Banking App"
+    category="Mobile Development"
+    image="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80"
+    slug="banking-app"
+  />
+
+  <ProjectCard
+    title="E-Commerce Platform"
+    category="Web Development"
+    image="https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=800&q=80"
+    slug="ecommerce-platform"
+  />
+
+  <ProjectCard
+    title="CRM Management System"
+    category="Software Development"
+    image="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
+    slug="crm-system"
+  />
+</div>
           </div>
         </Container>
       </section>
@@ -209,7 +240,7 @@ export default function HomePage() {
           <SectionHeading title="What Our Clients Say" centered />
           <div className="mt-16 grid gap-8 md:grid-cols-3">
             {[
-              { name: "John Doe", role: "CEO at TechFlow", text: "Blagweb Agency transformed our digital presence. Their attention to detail and technical expertise is unmatched." },
+              { name: "Rakesh Kuma", role: "CEO at TechFlow", text: "Blagweb Agency transformed our digital presence. Their attention to detail and technical expertise is unmatched." },
               { name: "Sarah Smith", role: "Marketing Director", text: "The team delivered our e-commerce platform ahead of schedule, and the results have been phenomenal." },
               { name: "Mike Johnson", role: "Founder of StartupX", text: "From UI/UX to final deployment, the entire process was seamless. Highly recommend their services." },
             ].map((t, i) => (
@@ -245,9 +276,7 @@ export default function HomePage() {
                 <Link href="/contact" className="bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all">
                   Start Your Project
                 </Link>
-                <Link href="/book" className="bg-blue-700 text-white border border-blue-500 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-800 transition-all">
-                  Book Free Consultation
-                </Link>
+               
               </div>
             </div>
           </div>

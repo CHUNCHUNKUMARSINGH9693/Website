@@ -1,9 +1,9 @@
 'use client';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Code, Layout, MobileNav, Search, Database, Cloud } from 'lucide-react';
+import { ArrowRight, Code, Layout, Smartphone, Search, Database, Cloud, Globe, Palette, ShoppingCart, Code2, Users, BarChart3, Megaphone } from 'lucide-react';
 
-const iconMap: any = { Code, Layout, Search, Database, Cloud };
+const iconMap: any = { Globe, Smartphone, Palette, ShoppingCart, Code2, Users, BarChart3, Megaphone, Search, Cloud };
 
 export default function ServiceCard({ service }: { service: any }) {
   const Icon = iconMap[service.icon] || Code;

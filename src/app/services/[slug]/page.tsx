@@ -106,31 +106,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </Container>
       </section>
 
-      {/* SECTION 6 — PRICING */}
-      <section className="py-24 bg-gray-50/50">
-        <Container>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900">Flexible Pricing Plans</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {service.pricing?.map((plan, i) => (
-              <div key={i} className={`p-10 rounded-[32px] border ${plan.highlight ? 'bg-blue-600 border-blue-600 text-white shadow-2xl shadow-blue-600/20' : 'bg-white border-gray-100 text-gray-900'}`}>
-                <h3 className="text-xl font-bold mb-2">{plan.plan}</h3>
-                <p className={`text-sm mb-6 ${plan.highlight ? 'text-blue-100' : 'text-gray-500'}`}>{plan.description}</p>
-                <div className="text-4xl font-bold mb-8">{plan.price}</div>
-                <ul className="space-y-4 mb-10">
-                  {plan.features.map(f => (
-                    <li key={f} className="flex items-center gap-3 text-sm font-medium">
-                      <Check className={plan.highlight ? 'text-white' : 'text-blue-600'} size={18} /> {f}
-                    </li>
-                  ))}
-                </ul>
-                <Button variant={plan.highlight ? 'primary' : 'outline'} className={`w-full ${plan.highlight ? 'bg-white text-blue-600 border-none hover:bg-gray-100' : ''}`}>Get Started</Button>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+     
 
       {/* SECTION 7 — FAQ */}
       <section className="py-24">
@@ -179,8 +155,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           <div className="bg-blue-600 rounded-[40px] p-12 md:p-20 text-center text-white relative overflow-hidden">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready To Build Your Next Digital Product?</h2>
             <div className="flex flex-wrap justify-center gap-4 mt-10">
-              <Button href="/contact" className="bg-white text-blue-600 hover:bg-blue-50 border-none">Start Your Project</Button>
-              <Button href="/contact" variant="outline" className="border-white text-white hover:bg-white/10">Contact Us</Button>
+              <Button href="/contact" className="bg-white text-[#2563eb] hover:bg-blue-50 border-none">Start Your Project</Button>
             </div>
           </div>
         </Container>

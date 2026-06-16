@@ -74,9 +74,10 @@ export default async function ServicesPage() {
         <Container>
           <div className="bg-blue-600 rounded-[40px] p-12 md:p-20 text-center text-white relative overflow-hidden">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready To Build Your Next Digital Product?</h2>
-            <div className="flex flex-wrap justify-center gap-4 mt-10">
-              <Button href="/contact" className="bg-white text-blue-600 hover:bg-blue-50 border-none">Start Your Project</Button>
-              <Button href="/contact" variant="outline" className="border-white text-white hover:bg-white/10">Contact Us</Button>
+           <div className="flex flex-wrap justify-center mt-10">
+             <Button href="/contact" className="bg-white text-[#2563eb] hover:bg-white-600 font-semibold border-none">
+                    Start Your Project
+              </Button>
             </div>
           </div>
         </Container>

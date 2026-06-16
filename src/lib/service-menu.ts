@@ -4,37 +4,61 @@ export const serviceMenuItems: ServiceMenuItem[] = [
   {
     title: "Web Development",
     description: "Business & startup websites",
-    href: "/services#web-development",
-    icon: "globe",
+    href: "/services/web-development",
+    icon: "globe"
+  },
+  {
+    title: "Mobile App Development",
+    description: "Android & iOS apps",
+    href: "/services/mobile-app-development",
+    icon: "mobile"
+  },
+  {
+    title: "UI/UX Design",
+    description: "Modern user experiences",
+    href: "/services/ui-ux-design",
+    icon: "design"
+  },
+  {
+    title: "E-Commerce Development",
+    description: "Online stores & marketplaces",
+    href: "/services/ecommerce-development",
+    icon: "shop"
   },
   {
     title: "Software Development",
     description: "Custom business systems",
-    href: "/services#software-development",
-    icon: "code",
+    href: "/services/software-development",
+    icon: "code"
   },
   {
-    title: "Mobile Apps",
-    description: "Android & iOS apps",
-    href: "/services#mobile-apps",
-    icon: "mobile",
+    title: "CRM Development",
+    description: "Customer management systems",
+    href: "/services/crm-development",
+    icon: "crm"
   },
   {
-    title: "DevOps",
-    description: "Cloud & deployment",
-    href: "/services#devops",
-    icon: "devops",
+    title: "ERP Development",
+    description: "Enterprise resource planning",
+    href: "/services/erp-development",
+    icon: "erp"
   },
   {
-    title: "SEO",
-    description: "Organic growth",
-    href: "/services#seo",
-    icon: "seo",
+    title: "Digital Marketing",
+    description: "Online marketing solutions",
+    href: "/services/digital-marketing",
+    icon: "marketing"
   },
   {
-    title: "Google & Social Ads",
-    description: "Paid marketing",
-    href: "/services#google-social-ads",
-    icon: "ads",
+    title: "SEO Services",
+    description: "Organic growth & rankings",
+    href: "/services/seo-services",
+    icon: "seo"
   },
+  {
+    title: "Cloud Solutions",
+    description: "Cloud infrastructure & DevOps",
+    href: "/services/cloud-solutions",
+    icon: "cloud"
+  }
 ];

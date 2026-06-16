@@ -1,25 +1,47 @@
 import Image from "next/image";
 
 const team = [
+  // Members from image_f9b244.jpg
   {
-    name: "John Smith",
-    role: "CEO & Founder",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    name: "Rakesh Kumar",
+    role: "Marketing Lead | Graphic Designer",
+    image: "/images/teams/rakesh-kumar.png",
   },
   {
-    name: "Sarah Johnson",
-    role: "Lead Designer",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    name: "Ravi Kumar",
+    role: "Web Developer",
+    image: "/images/teams/ravi-kumar.png",
   },
   {
-    name: "Michael Brown",
-    role: "Full Stack Developer",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    name: "Ranjan Kumar",
+    role: "App Developer",
+    image: "/images/teams/ranjan-kumar.png",
   },
   {
-    name: "Emily Davis",
-    role: "Marketing Specialist",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    name: "Raju Kumar",
+    role: "Java Developer",
+    image: "/images/teams/raju-kumar.png",
+  },
+  // Members from image_f9b21d.jpg
+  {
+    name: "Amit Kumar",
+    role: "Business Analyst",
+    image: "/images/teams/amit-kumar.png",
+  },
+  {
+    name: "Jay Kishor Yadav",
+    role: "Sales Head | .Net Developer",
+    image: "/images/teams/jay-kishor.png",
+  },
+  {
+    name: "Sarvesh",
+    role: "Tech Lead | Web Apps Developer",
+    image: "/images/teams/sarvesh.png",
+  },
+  {
+    name: "Prince Yadav",
+    role: "Ecommerce Expert | Growth Specialist",
+    image: "/images/teams/prince-yadav.png",
   },
 ];
 

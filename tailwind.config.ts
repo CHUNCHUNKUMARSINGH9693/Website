@@ -22,10 +22,23 @@ const config: Config = {
           900: "#832518",
           950: "#470f08",
         },
+        'brand-orange': {
+          DEFAULT: '#FF5A36',
+          light: '#FFEEEB',
+          hover: '#E64B2D',
+        },
+        primary: {
+          DEFAULT: "#2563EB",
+          hover: "#1D4ED8",
+          light: "#EFF6FF",
+        }
       },
       fontFamily: {
         sans: ["var(--font-poppins)", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
+      },
+      borderRadius: {
+        'premium': '24px',
       },
       backgroundImage: {
         "hero-gradient":

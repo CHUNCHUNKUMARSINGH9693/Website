@@ -42,26 +42,6 @@ export const fallbackServices: Service[] = [
       { number: 6, title: "Deployment", description: "Launch to production with monitoring." },
       { number: 7, title: "Support", description: "Ongoing maintenance and optimization." }
     ],
-    pricing: [
-      {
-        name: "Starter",
-        description: "Small Business",
-        features: ["Basic Features", "Affordable Pricing", "5 Pages"],
-        popular: false
-      },
-      {
-        name: "Business",
-        description: "Growing Companies",
-        features: ["Advanced Features", "Dynamic Content", "SEO Optimization", "Analytics"],
-        popular: true
-      },
-      {
-        name: "Enterprise",
-        description: "Large Organizations",
-        features: ["Custom Solutions", "Full Support", "Custom Integrations", "Performance Optimization"],
-        popular: false
-      }
-    ],
     faq: [
       {
         question: "How long does a web development project take?",
@@ -120,26 +100,6 @@ export const fallbackServices: Service[] = [
       { number: 6, title: "Deployment", description: "Submit to App Store and Play Store." },
       { number: 7, title: "Support", description: "Ongoing updates and maintenance." }
     ],
-    pricing: [
-      {
-        name: "Starter",
-        description: "MVP Application",
-        features: ["Core Features", "Single Platform", "Basic Support"],
-        popular: false
-      },
-      {
-        name: "Business",
-        description: "Full-Featured App",
-        features: ["All Features", "iOS & Android", "Analytics", "Push Notifications"],
-        popular: true
-      },
-      {
-        name: "Enterprise",
-        description: "Advanced Solutions",
-        features: ["Custom Features", "Dedicated Team", "24/7 Support", "Cloud Integration"],
-        popular: false
-      }
-    ],
     faq: [
       {
         question: "What platforms do you develop for?",
@@ -195,26 +155,6 @@ export const fallbackServices: Service[] = [
       { number: 5, title: "Prototyping", description: "Interactive prototypes for testing." },
       { number: 6, title: "Testing", description: "User testing and iterations." },
       { number: 7, title: "Handoff", description: "Design specs and assets for developers." }
-    ],
-    pricing: [
-      {
-        name: "Starter",
-        description: "Small Projects",
-        features: ["UI Design", "Basic Prototyping", "5 Screens"],
-        popular: false
-      },
-      {
-        name: "Business",
-        description: "Full Design Project",
-        features: ["Complete UX/UI", "User Research", "Prototyping", "Design System"],
-        popular: true
-      },
-      {
-        name: "Enterprise",
-        description: "Complex Solutions",
-        features: ["Enterprise Design", "Design System", "Dedicated Designer", "Ongoing Support"],
-        popular: false
-      }
     ],
     faq: [
       {
@@ -274,26 +214,6 @@ export const fallbackServices: Service[] = [
       { number: 6, title: "Launch", description: "Deploy to production with monitoring." },
       { number: 7, title: "Optimization", description: "Ongoing conversion optimization." }
     ],
-    pricing: [
-      {
-        name: "Starter",
-        description: "Small Online Store",
-        features: ["Up to 100 Products", "Basic Features", "Payment Integration"],
-        popular: false
-      },
-      {
-        name: "Business",
-        description: "Growing Store",
-        features: ["Unlimited Products", "Advanced Features", "Marketing Tools", "Analytics"],
-        popular: true
-      },
-      {
-        name: "Enterprise",
-        description: "High-Volume Store",
-        features: ["Everything", "Custom Features", "Dedicated Support", "Performance Optimization"],
-        popular: false
-      }
-    ],
     faq: [
       {
         question: "Which payment gateways do you support?",
@@ -351,26 +271,6 @@ export const fallbackServices: Service[] = [
       { number: 5, title: "Testing", description: "Unit, integration, and system testing." },
       { number: 6, title: "Deployment", description: "Deploy to production environment." },
       { number: 7, title: "Maintenance", description: "Ongoing support and optimization." }
-    ],
-    pricing: [
-      {
-        name: "Starter",
-        description: "Small Projects",
-        features: ["Basic Application", "Fixed Scope", "3 Months Support"],
-        popular: false
-      },
-      {
-        name: "Business",
-        description: "Mid-Size Projects",
-        features: ["Complex Application", "Flexible Scope", "6 Months Support"],
-        popular: true
-      },
-      {
-        name: "Enterprise",
-        description: "Large Systems",
-        features: ["Enterprise System", "Custom Solutions", "Long-term Support"],
-        popular: false
-      }
     ],
     faq: [
       {
@@ -504,26 +404,6 @@ export const fallbackServices: Service[] = [
       { number: 6, title: "Launch", description: "Phased rollout and data migration." },
       { number: 7, title: "Optimization", description: "Performance tuning and optimization." }
     ],
-    pricing: [
-      {
-        name: "Starter",
-        description: "Small Business",
-        features: ["Basic Modules", "Up to 50 Users", "Cloud Hosting"],
-        popular: false
-      },
-      {
-        name: "Business",
-        description: "Medium Business",
-        features: ["All Modules", "Up to 200 Users", "Advanced Reporting"],
-        popular: true
-      },
-      {
-        name: "Enterprise",
-        description: "Large Enterprise",
-        features: ["Custom Modules", "Unlimited Users", "Dedicated Support", "SLA"],
-        popular: false
-      }
-    ],
     faq: [
       {
         question: "Can we use an existing ERP as a base?",
@@ -578,26 +458,6 @@ export const fallbackServices: Service[] = [
       { number: 5, title: "Monitoring", description: "Track performance and metrics." },
       { number: 6, title: "Optimization", description: "A/B test and optimize campaigns." },
       { number: 7, title: "Reporting", description: "Provide detailed analytics and insights." }
-    ],
-    pricing: [
-      {
-        name: "Starter",
-        description: "Small Business",
-        features: ["1-2 Channels", "Monthly Reporting", "Basic Strategy"],
-        popular: false
-      },
-      {
-        name: "Business",
-        description: "Growing Business",
-        features: ["Multi-channel", "Weekly Reporting", "Advanced Strategy", "Content Creation"],
-        popular: true
-      },
-      {
-        name: "Enterprise",
-        description: "Large Enterprise",
-        features: ["All Channels", "Daily Monitoring", "Custom Strategy", "Dedicated Team"],
-        popular: false
-      }
     ],
     faq: [
       {
@@ -654,26 +514,6 @@ export const fallbackServices: Service[] = [
       { number: 6, title: "Link Building", description: "Acquire quality backlinks." },
       { number: 7, title: "Monitoring", description: "Track rankings and performance." }
     ],
-    pricing: [
-      {
-        name: "Starter",
-        description: "Local Business",
-        features: ["Local SEO", "10 Keywords", "Monthly Reports"],
-        popular: false
-      },
-      {
-        name: "Business",
-        description: "Growing Business",
-        features: ["National SEO", "30 Keywords", "Bi-weekly Reports", "Content Optimization"],
-        popular: true
-      },
-      {
-        name: "Enterprise",
-        description: "Large Enterprise",
-        features: ["International SEO", "100+ Keywords", "Weekly Reports", "Dedicated Manager"],
-        popular: false
-      }
-    ],
     faq: [
       {
         question: "How long before we see SEO results?",
@@ -728,26 +568,6 @@ export const fallbackServices: Service[] = [
       { number: 5, title: "Testing", description: "Validate cloud environment." },
       { number: 6, title: "Optimization", description: "Optimize for performance and cost." },
       { number: 7, title: "Management", description: "Ongoing cloud management." }
-    ],
-    pricing: [
-      {
-        name: "Starter",
-        description: "Small Application",
-        features: ["Basic Setup", "Monthly Monitoring", "Email Support"],
-        popular: false
-      },
-      {
-        name: "Business",
-        description: "Medium Application",
-        features: ["Advanced Setup", "24/7 Monitoring", "Auto-scaling", "Priority Support"],
-        popular: true
-      },
-      {
-        name: "Enterprise",
-        description: "Enterprise",
-        features: ["Enterprise Setup", "24/7 Management", "Dedicated Team", "SLA"],
-        popular: false
-      }
     ],
     faq: [
       {

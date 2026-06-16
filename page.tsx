@@ -1,226 +1,234 @@
-import { Metadata } from 'next';
-import Image from 'next/image'; // For popular posts thumbnails and hero image
-import { ArrowRight } from 'lucide-react'; // For pagination icon and blog card arrow
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { getServiceBySlug } from '@/serviceService';
+import { Check, ChevronRight, Home, ArrowRight, Zap, Shield, Smartphone, Search, BarChart, Layout, Globe, Code2, Database, Cloud } from 'lucide-react';
 
-import Container from '@/components/Container';
-import SectionHeading from '@/components/SectionHeading';
-import BlogCard from '@/components/blog/BlogCard';
+export default async function ServicePage({ params }: { params: { slug: string } }) {
+  const service = await getServiceBySlug(params.slug);
 
-export const metadata: Metadata = {
-  title: 'Blog | Blagweb Agency',
-  description: 'Stay updated with the latest trends, tips, and insights in web development, design, mobile apps, SEO, and digital marketing.',
-};
-
-export default function BlogPage() {
-  // Dummy blog data for demonstration
-  const blogPosts = [
-    {
-      slug: 'the-complete-guide-to-modern-web-development',
-      image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      category: 'Web Development',
-      title: 'The Complete Guide to Modern Web Development',
-      description: 'Dive deep into the latest technologies and best practices for building robust web applications.',
-      date: 'November 1, 2023',
-      readingTime: '10 min read',
-    },
-    {
-      slug: 'mobile-first-approach-in-2025',
-      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      category: 'UI/UX Design',
-      title: 'Mobile-First Approach in 2025',
-      description: 'Understand why designing for mobile first is crucial for future-proof digital products.',
-      date: 'October 28, 2023',
-      readingTime: '8 min read',
-    },
-    {
-      slug: 'seo-best-practices-for-higher-rankings',
-      image: 'https://images.unsplash.com/photo-1557804506-669a67965da9?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      category: 'Digital Marketing',
-      title: 'SEO Best Practices for Higher Rankings',
-      description: 'Unlock the secrets to improving your search engine visibility and driving organic traffic.',
-      date: 'October 25, 2023',
-      readingTime: '12 min read',
-    },
-    {
-      slug: 'ui-ux-principles-every-designer-should-know',
-      image: 'https://images.unsplash.com/photo-1596526131083-e8c762244817?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      category: 'UI/UX Design',
-      title: 'UI/UX Principles Every Designer Should Know',
-      description: 'Essential principles to create intuitive and engaging user experiences.',
-      date: 'October 20, 2023',
-      readingTime: '7 min read',
-    },
-    {
-      slug: 'what-is-cloud-computing-and-how-it-works',
-      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      category: 'Technology',
-      title: 'What is Cloud Computing and How It Works',
-      description: 'A comprehensive guide to understanding cloud infrastructure and its benefits for businesses.',
-      date: 'October 15, 2023',
-      readingTime: '15 min read',
-    },
-    {
-      slug: 'useful-vs-code-extensions-for-developers',
-      image: 'https://images.unsplash.com/photo-1617042375876-a13e36732a04?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      category: 'Development Tools',
-      title: 'Useful VS Code Extensions for Developers',
-      description: 'Boost your productivity with these must-have Visual Studio Code extensions.',
-      date: 'October 10, 2023',
-      readingTime: '6 min read',
-    },
-  ];
+  if (!service) {
+    notFound();
+  }
 
   return (
-    <main className="bg-white">
-      {/* Header Navigation - (Assumed global, not implemented here) */}
-      {/* A global Navbar component would typically handle this, with the "Blog" link marked as active. */}
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
+      {/* --- BREADCRUMB --- */}
+      <div className="bg-slate-50/50 border-b border-slate-100">
+        <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center gap-2 text-sm font-medium text-slate-500">
+          <Link href="/" className="hover:text-blue-600 flex items-center gap-1 transition-colors">
+            <Home size={14} /> Home
+          </Link>
+          <ChevronRight size={14} className="text-slate-300" />
+          <Link href="/services" className="hover:text-blue-600 transition-colors">Services</Link>
+          <ChevronRight size={14} className="text-slate-300" />
+          <span className="text-slate-900">{service.title}</span>
+        </nav>
+      </div>
 
-      {/* SECTION 1: HERO SECTION */}
-      <section className="relative py-24 md:py-32 bg-gradient-to-br from-blue-50 to-white overflow-hidden">
-        <Container className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left Side */}
-          <div>
-            <span className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-200 mb-4">
-              OUR BLOG
-            </span>
-            <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-              Latest Insights & Updates
+      {/* --- SECTION 1: HERO --- */}
+      <section className="relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 py-20 lg:py-32 grid lg:grid-cols-2 gap-16 items-center">
+          <div className="flex flex-col items-start space-y-8">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-bold tracking-wider uppercase border border-blue-100">
+              <Zap size={14} fill="currentColor" /> Premium Agency Service
+            </div>
+            <h1 className="text-6xl lg:text-8xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
+              {service.title} <span className="text-blue-600">Services</span>
             </h1>
-            <p className="text-lg text-gray-700 max-w-lg">
-              Stay updated with the latest trends, tips, and insights in web development, design, mobile apps, SEO, and digital marketing.
+            <p className="text-xl text-slate-500 leading-relaxed max-w-xl font-medium">
+              {service.shortDescription}
             </p>
-          </div>
-          {/* Right Side - Image Placeholder */}
-          <div className="relative h-64 md:h-96 bg-gray-100 rounded-3xl shadow-xl overflow-hidden flex items-center justify-center p-4">
-            <Image
-              src="https://images.unsplash.com/photo-1504711432028-417f05739789?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Modern flat-lay with laptop, coffee, notebook, plant, smartphone"
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover"
-            />
-          </div>
-        </Container>
-      </section>
-
-      {/* Main Content Area: SECTION 2 (Sidebar) & SECTION 3 (Blog Grid) */}
-      <section className="py-20 bg-gray-50">
-        <Container className="grid grid-cols-1 lg:grid-cols-4 gap-12">
-          {/* SECTION 2: SIDEBAR */}
-          <aside className="lg:col-span-1 space-y-10">
-            {/* Search Box */}
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Search</h3>
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search articles..."
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-xl focus:ring-blue-500 focus:border-blue-500 transition-all"
-                />
-                <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+              {[
+                "Modern Technologies", "Responsive Design", 
+                "SEO Optimized", "Secure Architecture"
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-3 text-slate-700 font-semibold text-base">
+                  <div className="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                    <Check size={14} className="text-white" strokeWidth={4} />
+                  </div>
+                  {item}
+                </div>
+              ))}
             </div>
 
-            {/* Categories */}
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Categories</h3>
-              <ul className="space-y-2">
-                {['Web Development', 'UI/UX Design', 'Mobile Development', 'Digital Marketing', 'SEO', 'Business Growth'].map(category => (
-                  <li key={category}>
-                    <a href="#" className="block text-gray-700 hover:text-blue-600 transition-colors py-1">
-                      {category}
-                    </a>
+            <div className="flex flex-col sm:flex-row gap-4 pt-6 w-full sm:w-auto">
+              <Link href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-2xl font-bold shadow-xl shadow-blue-200 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 group text-lg">
+                Get Free Consultation <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link href="/portfolio" className="bg-white border-2 border-slate-100 hover:border-blue-600 hover:text-blue-600 text-slate-700 px-10 py-5 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 text-lg">
+                View Our Projects
+              </Link>
+            </div>
+          </div>
+          
+          <div className="relative lg:ml-4">
+            <div className="absolute -inset-10 bg-gradient-to-tr from-blue-100/50 to-transparent blur-3xl rounded-full opacity-60" />
+            <div className="relative aspect-square sm:aspect-video lg:aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white group">
+              <Image 
+                src={service.heroImage || "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80"} 
+                alt={service.title}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- SECTION 2: OVERVIEW --- */}
+      <section className="bg-white py-24 lg:py-32 border-y border-slate-100">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center space-y-8">
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900">Overview</h2>
+            <div className="grid md:grid-cols-2 gap-12 text-left">
+              <p className="text-xl text-slate-500 leading-loose">
+                At Blagweb Agency, our {service.title} solutions are engineered for growth. We don't just build software; we create business assets designed to scale seamlessly as your user base expands. By prioritizing high-performance architectures and industry-standard security, we ensure your digital product remains competitive and robust in a rapidly evolving market.
+              </p>
+              <p className="text-xl text-slate-500 leading-loose">
+                Our approach centers on the user experience. By integrating modern UI/UX principles with secure back-end systems, we deliver products that are intuitive for users and manageable for your team. Whether it's enhancing performance or ensuring cross-device responsiveness, our goal is to deliver measurable business benefits and a frictionless digital journey.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- SECTION 3: TECHNOLOGIES --- */}
+      <section className="max-w-7xl mx-auto px-6 py-24 lg:py-32">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">Technology Stack</h2>
+          <p className="text-slate-500 mt-4 text-xl">Powering your project with industry-leading tools.</p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            { title: "Frontend", items: ["React", "Next.js", "Tailwind CSS"], icon: <Layout /> },
+            { title: "Backend", items: ["Node.js", "Express.js", "NestJS"], icon: <Code2 /> },
+            { title: "Database", items: ["MongoDB", "PostgreSQL", "Prisma"], icon: <Database /> },
+            { title: "Deployment", items: ["AWS", "Vercel", "Docker"], icon: <Cloud /> }
+          ].map((tech) => (
+            <div key={tech.title} className="group p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100 transition-all duration-300 hover:-translate-y-2">
+              <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                {React.cloneElement(tech.icon as React.ReactElement, { size: 28 })}
+              </div>
+              <h3 className="text-xl font-bold mb-4">{tech.title}</h3>
+              <ul className="space-y-3">
+                {tech.items.map(i => (
+                  <li key={i} className="text-slate-500 font-medium flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400" /> {i}
                   </li>
                 ))}
               </ul>
             </div>
+          ))}
+        </div>
+      </section>
 
-            {/* Popular Posts */}
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Popular Posts</h3>
-              <div className="space-y-6">
-                {[
-                  { title: 'The Future of AI in Web Development', date: 'Oct 26, 2023', thumbnail: 'https://images.unsplash.com/photo-1518770660439-4636190af324?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
-                  { title: 'Mastering Tailwind CSS for Responsive Design', date: 'Oct 20, 2023', thumbnail: 'https://images.unsplash.com/photo-1633356122544-cd3608a922e9?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
-                  { title: 'Boost Your SEO with These 5 Simple Tricks', date: 'Oct 15, 2023', thumbnail: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
-                ].map((post, index) => (
-                  <div key={index} className="flex items-center space-x-4">
-                    <Image
-                      src={post.thumbnail}
-                      alt={post.title}
-                      width={80}
-                      height={64}
-                      className="object-cover rounded-lg shadow-sm"
-                    />
-                    <div className="flex-1">
-                      <h4 className="text-md font-medium text-gray-900 hover:text-blue-600 transition-colors">
-                        <a href="#">{post.title}</a>
-                      </h4>
-                      <p className="text-sm text-gray-500">{post.date}</p>
-                    </div>
-                  </div>
-                ))}
+      {/* --- SECTION 4: FEATURES --- */}
+      <section className="bg-slate-900 py-24 lg:py-32 text-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/10 blur-[120px] rounded-full translate-x-1/2" />
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight">Core Capabilities</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: "Responsive Design", icon: <Smartphone /> },
+              { title: "SEO Optimized", icon: <Search /> },
+              { title: "Fast Performance", icon: <Zap /> },
+              { title: "Secure Architecture", icon: <Shield /> },
+              { title: "Scalable Solutions", icon: <BarChart /> },
+              { title: "Modern UI/UX", icon: <Layout /> }
+            ].map((feature, idx) => (
+              <div key={idx} className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-blue-500/50 transition-all duration-300 group">
+                <div className="text-blue-500 mb-6 group-hover:scale-110 transition-transform duration-300">{React.cloneElement(feature.icon as React.ReactElement, { size: 32 })}</div>
+                <h3 className="text-xl font-semibold">{feature.title}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- SECTION 5: DEVELOPMENT PROCESS --- */}
+      <section className="max-w-7xl mx-auto px-6 py-24 lg:py-32">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">Development Process</h2>
+          <p className="text-slate-500 mt-4 text-xl">How we bring your vision to life.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {service.process.map((step, idx) => (
+            <div key={step.step} className="relative bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+              <div className="text-6xl font-black text-slate-50 absolute top-4 right-6 group-hover:text-blue-50 transition-colors">
+                0{idx + 1}
+              </div>
+              <div className="relative z-10">
+                <div className="w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center font-bold mb-6 shadow-lg shadow-blue-200">
+                  {step.step}
+                </div>
+                <h4 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h4>
+                <p className="text-slate-500 leading-relaxed font-medium">{step.description}</p>
               </div>
             </div>
-          </aside>
-
-          {/* SECTION 3: BLOG GRID */}
-          <div className="lg:col-span-3">
-            <SectionHeading
-              title="Our Latest Articles"
-              subtitle="Stay informed with our expert insights"
-              className="mb-10 text-left" // Override centered from SectionHeading
-            />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {blogPosts.map((post) => (
-                <BlogCard key={post.slug} {...post} />
-              ))}
-            </div>
-
-            {/* SECTION 5: PAGINATION */}
-            <div className="flex justify-center items-center space-x-2 mt-16">
-              <button className="flex items-center px-4 py-2 border border-gray-300 rounded-xl text-gray-700 hover:bg-gray-100 transition-colors">
-                <ArrowRight className="w-4 h-4 rotate-180 mr-2" /> Previous
-              </button>
-              {[1, 2, 3, 4].map(page => (
-                <button key={page} className={`px-4 py-2 rounded-xl font-medium ${page === 1 ? 'bg-blue-600 text-white shadow-md' : 'text-gray-700 hover:bg-gray-100 border border-transparent hover:border-gray-200'} transition-all`}>
-                  {page}
-                </button>
-              ))}
-              <button className="flex items-center px-4 py-2 border border-gray-300 rounded-xl text-gray-700 hover:bg-gray-100 transition-colors">
-                Next <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
-            </div>
-          </div>
-        </Container>
+          ))}
+        </div>
       </section>
 
-      {/* SECTION 4: NEWSLETTER SECTION */}
-      <section className="py-20 bg-blue-600 text-white">
-        <Container className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex items-center gap-4 text-center md:text-left">
-            <svg className="w-16 h-16 text-blue-200 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            <div>
-              <h2 className="text-3xl font-bold mb-2">Stay Updated with Our Latest Articles</h2>
-              <p className="text-blue-100 text-lg">Subscribe to our newsletter and never miss an update.</p>
+      {/* --- SECTION 7: RELATED PROJECTS --- */}
+      <section className="max-w-7xl mx-auto px-6 py-24 lg:py-32">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
+          <div className="space-y-4">
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">Recent Projects</h2>
+            <p className="text-slate-500 text-xl font-medium">Proven results in {service.title}.</p>
+          </div>
+          <Link href="/portfolio" className="text-blue-600 font-bold flex items-center gap-2 hover:gap-4 transition-all text-lg">
+            View all projects <ArrowRight size={18} />
+          </Link>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {service.relatedProjects?.slice(0, 4).map((project, i) => (
+            <div key={i} className="group rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500">
+              <div className="aspect-video relative overflow-hidden">
+                <Image 
+                  src={project.image || `https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800`} 
+                  alt={project.title} 
+                  fill 
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-8">
+                <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">{project.category}</span>
+                <h3 className="text-xl font-bold text-slate-900 mt-3 mb-6 group-hover:text-blue-600 transition-colors">{project.title}</h3>
+                <Link href={`/portfolio/${project.slug}`} className="inline-flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-blue-600 transition-colors">
+                  View Project <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+          )) || <div className="col-span-full py-12 text-center text-slate-400">Loading projects...</div>}
+        </div>
+      </section>
+
+      {/* --- SECTION 8: FINAL CTA --- */}
+      <section className="max-w-7xl mx-auto px-6 pb-24 lg:pb-32">
+        <div className="bg-slate-900 rounded-[3rem] p-12 lg:p-24 text-center text-white relative overflow-hidden border border-white/5">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px]" />
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px]" />
+          
+          <div className="relative z-10 max-w-3xl mx-auto space-y-10">
+            <h2 className="text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight">Ready to build your next <br className="hidden lg:block"/> digital product?</h2>
+            <p className="text-slate-400 text-xl font-medium">
+              Partner with Blagweb Agency to deliver high-performance solutions designed for the modern web.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center">
+              <Link href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 rounded-2xl font-bold text-xl transition-all shadow-2xl shadow-blue-900/20 hover:scale-105 active:scale-95">
+                Start Your Project
+              </Link>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="flex-grow px-5 py-3 rounded-xl border border-blue-400 bg-blue-700 text-white placeholder-blue-200 focus:ring-blue-300 focus:border-blue-300 transition-all shadow-inner"
-            />
-            <button className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-xl hover:bg-blue-50 transition-colors shadow-md">
-              Subscribe Now
-            </button>
-          </div>
-        </Container>
+        </div>
       </section>
-    </main>
+    </div>
   );
 }
